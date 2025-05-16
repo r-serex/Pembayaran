@@ -27,31 +27,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Get amount from URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    let amount = urlParams.get('amount');
-    
-    // Format amount or use default
-    let formattedAmount = 'Rp 150.000';
-    if (amount) {
-        // Convert to number and format with thousand separator
-        const amountNumber = parseInt(amount, 10);
-        if (!isNaN(amountNumber)) {
-            formattedAmount = formatRupiah(amountNumber);
+    // Get amount from URL parameter - FIXED VERSION
+    function getAmountFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let amount = urlParams.get('amount');
+        console.log("URL amount parameter:", amount);
+        
+        // Format amount or use default
+        let formattedAmount = 'Rp 150.000';
+        if (amount) {
+            // Convert to number and format with thousand separator
+            const amountNumber = parseInt(amount, 10);
+            if (!isNaN(amountNumber)) {
+                formattedAmount = formatRupiah(amountNumber);
+                console.log("Formatted amount:", formattedAmount);
+            }
         }
+        return formattedAmount;
     }
+    
+    // Get and set the amount
+    const formattedAmount = getAmountFromUrl();
     
     // Update all amount elements on the page
     const amountElements = document.querySelectorAll('.amount');
+    console.log("Found amount elements:", amountElements.length);
+    
     amountElements.forEach(el => {
         el.textContent = formattedAmount;
+        console.log("Updated element:", el);
     });
-    
-    // Also update in the instructions
-    const instructionAmountElement = document.querySelector('.instruction-step:nth-child(4) .font-medium');
-    if (instructionAmountElement) {
-        instructionAmountElement.textContent = formattedAmount;
-    }
 
     // Current active tab
     let activeTab = 'dana';
@@ -128,6 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function copyToClipboard(text) {
+        // Use modern clipboard API if available
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text)
+                .then(() => showToast())
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    fallbackCopyToClipboard(text);
+                });
+        } else {
+            fallbackCopyToClipboard(text);
+        }
+    }
+    
+    function fallbackCopyToClipboard(text) {
         // Create a temporary input element
         const tempInput = document.createElement('input');
         tempInput.value = text;
@@ -157,4 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatRupiah(number) {
         return 'Rp ' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
+
+    // Add a debug message to show the current URL
+    console.log("Current URL:", window.location.href);
 });

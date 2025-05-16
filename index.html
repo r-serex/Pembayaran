@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pembayaran</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <!-- Header -->
+        <div class="header animate-fade-in">
+            <h1>Pembayaran</h1>
+            <p>Silakan selesaikan pembayaran Anda</p>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="card animate-slide-up">
+            <div class="card-header">
+                <h2>Detail Pembayaran</h2>
+                <p class="card-description">Mohon selesaikan dalam waktu</p>
+            </div>
+            <div class="card-content">
+                <div class="payment-detail">
+                    <span>Waktu Tersisa:</span>
+                    <span id="countdown" class="countdown">60:00</span>
+                </div>
+
+                <div class="payment-detail">
+                    <span>Total Pembayaran:</span>
+                    <span class="amount">Rp 150.000</span>
+                </div>
+
+                <div class="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <p>Pastikan transfer sesuai dengan jumlah yang tertera</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="card animate-slide-up delay-100">
+            <div class="card-header">
+                <h2>Metode Pembayaran</h2>
+                <p class="card-description">Pilih metode pembayaran yang Anda inginkan</p>
+            </div>
+            <div class="card-content">
+                <div class="tabs">
+                    <div class="tabs-list">
+                        <button class="tab-trigger active" data-tab="dana">Dana</button>
+                        <button class="tab-trigger" data-tab="gopay">Gopay</button>
+                        <button class="tab-trigger" data-tab="ovo">OVO</button>
+                        <button class="tab-trigger" data-tab="qris">QRIS</button>
+                    </div>
+
+                    <div class="tab-content active" id="dana-content">
+                        <div class="payment-logo">
+                            <img src="https://placeholder.com/80x40" alt="Dana logo">
+                        </div>
+                        <div class="payment-info">
+                            <div>
+                                <p class="label">Nama Akun</p>
+                                <p class="value">PT Payment Indonesia</p>
+                            </div>
+                            <div>
+                                <p class="label">Nomor Dana</p>
+                                <div class="copy-field">
+                                    <span class="account-number">081234567890</span>
+                                    <button class="copy-btn" data-number="081234567890">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="gopay-content">
+                        <div class="payment-logo">
+                            <img src="https://placeholder.com/80x40" alt="Gopay logo">
+                        </div>
+                        <div class="payment-info">
+                            <div>
+                                <p class="label">Nama Akun</p>
+                                <p class="value">PT Payment Indonesia</p>
+                            </div>
+                            <div>
+                                <p class="label">Nomor Gopay</p>
+                                <div class="copy-field">
+                                    <span class="account-number">081234567891</span>
+                                    <button class="copy-btn" data-number="081234567891">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="ovo-content">
+                        <div class="payment-logo">
+                            <img src="https://placeholder.com/80x40" alt="OVO logo">
+                        </div>
+                        <div class="payment-info">
+                            <div>
+                                <p class="label">Nama Akun</p>
+                                <p class="value">PT Payment Indonesia</p>
+                            </div>
+                            <div>
+                                <p class="label">Nomor OVO</p>
+                                <div class="copy-field">
+                                    <span class="account-number">081234567892</span>
+                                    <button class="copy-btn" data-number="081234567892">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="qris-content">
+                        <div class="payment-logo">
+                            <img src="https://placeholder.com/80x40" alt="QRIS logo">
+                        </div>
+                        <div class="payment-info">
+                            <div>
+                                <p class="label">Nama Akun</p>
+                                <p class="value">PT Payment Indonesia</p>
+                            </div>
+                            <div>
+                                <p class="label">Kode QRIS</p>
+                                <div class="copy-field">
+                                    <span class="account-number">ID10123456789012345</span>
+                                    <button class="copy-btn" data-number="ID10123456789012345">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button id="copy-button" class="primary-button">Salin Nomor Pembayaran</button>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="card animate-slide-up delay-200">
+            <div class="card-header">
+                <h2>Petunjuk Pembayaran</h2>
+            </div>
+            <div class="card-content">
+                <div class="instructions">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <p>Buka aplikasi <span id="payment-method-name">Dana</span> di smartphone Anda</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <p>Pilih menu transfer atau kirim uang</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <p>Masukkan nomor tujuan: <span id="payment-number" class="font-medium">081234567890</span></p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <p>Masukkan jumlah transfer: <span class="font-medium amount">Rp 150.000</span></p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">5</div>
+                        <p>Konfirmasi dan selesaikan pembayaran</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <div class="toast-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                    <h3>Berhasil disalin!</h3>
+                    <p>Nomor pembayaran telah disalin ke clipboard.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

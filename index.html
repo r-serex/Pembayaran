@@ -6,6 +6,24 @@
     <title>Sistem Pembayaran</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Debug script to check URL parameters
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log("URL Parameters:", window.location.search);
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('amount');
+            console.log("Amount parameter:", amount);
+            
+            // Check if amount elements exist
+            setTimeout(function() {
+                const amountElements = document.querySelectorAll('.amount');
+                console.log("Amount elements found:", amountElements.length);
+                amountElements.forEach((el, i) => {
+                    console.log(`Amount element ${i}:`, el.textContent);
+                });
+            }, 500);
+        });
+    </script>
 </head>
 <body>
     <main class="container">

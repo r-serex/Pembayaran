@@ -4,26 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 'dana',
             name: 'Dana',
-            accountNumber: '081234567890',
-            accountName: 'PT Payment Indonesia'
+            accountNumber: '085876786662',
+            accountName: 'MISNAWATI'
         },
         {
             id: 'gopay',
             name: 'Gopay',
-            accountNumber: '081234567891',
-            accountName: 'PT Payment Indonesia'
+            accountNumber: '-',
+            accountName: 'RUZX STORE'
         },
         {
             id: 'ovo',
             name: 'OVO',
-            accountNumber: '081234567892',
-            accountName: 'PT Payment Indonesia'
+            accountNumber: '-',
+            accountName: 'RUZX STORE'
         },
         {
             id: 'qris',
             name: 'QRIS',
-            accountNumber: 'ID10123456789012345',
-            accountName: 'PT Payment Indonesia'
+            accountNumber: 'https://files.catbox.moe/umfb7h.jpg',
+            accountName: 'REGY SHOP'
         }
     ];
 
